@@ -24,7 +24,7 @@ public class View {
             System.out.println(m);
             linea = leer.nextLine();
         }
-        System.out.println("Dato ingresado con exito");
+
         resultado = Integer.parseInt(linea);
         return resultado;
     }

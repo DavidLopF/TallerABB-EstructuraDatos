@@ -103,6 +103,21 @@ public class ArbolBinario {
 
     }
 
+    public NodoArbol busqueda(int a) {
+        NodoArbol aux = raiz;
+        while (aux.getDato() != a) {
+            if (a < aux.getDato()) {
+                aux = aux.getHijoIzquierdo();
+            } else {
+                aux = aux.getHijoDerecho();
+            }
+            if (aux == null) { //saber si ya estamos en el fina
+                return null;
+            }
+        }
+        return aux;
+    }
+
     private NodoArbol obtenerNodoReemplaz(NodoArbol aux) {
         NodoArbol reemplazarPadre = aux;
         NodoArbol reemplazo = aux;

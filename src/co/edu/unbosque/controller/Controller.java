@@ -1,6 +1,7 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.ArbolBinario;
+import co.edu.unbosque.model.NodoArbol;
 import co.edu.unbosque.view.View;
 
 import java.util.ArrayList;
@@ -48,21 +49,35 @@ public class Controller {
 
                 case 2:
                     ArrayList listElim = new ArrayList();
-                    dato = view.capturarInt("elementos en el arbol : " + arbolBinario.recorrerInOrder(arbolBinario.getRaiz(), listElim) +
+                    dato = view.capturarInt("ELEMENTOS EN EL ARBOL : " + arbolBinario.recorrerInOrder(arbolBinario.getRaiz(), listElim) +
                             "\nINGRESE ELEMENTO A ELIMINAR DEL ARBOL: ");
                     if (arbolBinario.eliminar(dato)) {
                         view.mostrarDato("NODO ELIMINADO CON EXITO");
-                    }else{
+                    } else {
                         view.mostrarDato("NO SE HA ELIMINADO EL NODO");
                     }
                     funcionar();
 
                     break;
 
+                case 3:
+                    ArrayList listBus = new ArrayList();
+                    dato = view.capturarInt("ELEMENTOS EN EL ARBOL : " + arbolBinario.recorrerInOrder(arbolBinario.getRaiz(), listBus) +
+                            "\nINGRESE ELEMENTO A ELIMINAR DEL ARBOL: ");
+
+                    NodoArbol resulBusqueda = arbolBinario.busqueda(dato);
+                    if (resulBusqueda != null) {
+                        view.mostrarDato("SE ENCONTRO EL ELEMENTO INGRESADO EN EL ARBOL Y ESTE ES: " + resulBusqueda.getDato());
+                    } else {
+                        view.mostrarDato("EL ELEMENTO INGRESADO NO SE ENCUENTRA EN EL ARBOL");
+                    }
+                    funcionar();
+                    break;
+
                 case 4:
                     view.mostrarDato("\n");
                     ArrayList listIN = new ArrayList();
-                    System.out.println("RESULTAOD DE RECORRIDO IN ORDER:\n" + arbolBinario.recorrerInOrder(arbolBinario.getRaiz(), listIN));
+                    view.mostrarDato("RESULTAOD DE RECORRIDO IN ORDER:\n" + arbolBinario.recorrerInOrder(arbolBinario.getRaiz(), listIN));
                     funcionar();
                     break;
 
