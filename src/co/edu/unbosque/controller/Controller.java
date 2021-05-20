@@ -24,7 +24,9 @@ public class Controller {
                 "\n1. INSERTAR." +
                         "\n2. ELIMINAR." +
                         "\n3. BUSCAR ELEMENTO." +
-                        "\n4. RECORRIDO IN ORDER.";
+                        "\n4. RECORRIDO IN ORDER." +
+                        "\n5. RECORRIDO PREORDEN" +
+                        "\n6. RECORRIDO POSTORDEN";
         view.mostrarDato(menu);
         int opcion = view.capturarInt("\nESCRIBA ACCION A REALIZAR: ");
 
@@ -38,6 +40,16 @@ public class Controller {
 
             case 4:
                 arbolBinario.recorrerInOrder(arbolBinario.getRaiz());
+                funcionar();
+                break;
+
+            case 5:
+                arbolBinario.recorerPreOrden(arbolBinario.getRaiz());
+                funcionar();
+                break;
+
+            case 6:
+                arbolBinario.recorridoPostOrden(arbolBinario.getRaiz());
                 funcionar();
                 break;
 

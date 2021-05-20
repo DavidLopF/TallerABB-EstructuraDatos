@@ -39,14 +39,32 @@ public class ArbolBinario {
         }
     }
 
-    public List<String> recorrerInOrder(NodoArbol nodo) {
-        List<String> temp = new ArrayList<>();
+    public void recorridoPostOrden(NodoArbol nodo) {
+        if (nodo != null) {
+            recorridoPostOrden(nodo.getHijoIzquierdo());
+            recorridoPostOrden(nodo.getHijoDerecho());
+            System.out.print("NUMERO DE NODO : " + nodo.getDato());
+        }
+    }
+
+    public void recorrerInOrder(NodoArbol nodo) {
         if (nodo != null) {
             recorrerInOrder(nodo.getHijoIzquierdo());
             System.out.println("NUMERO DE NODO : " + nodo.getDato());
             recorrerInOrder(nodo.getHijoDerecho());
         }
-        return temp;
+
+    }
+
+    public void recorerPreOrden(NodoArbol nodo) {
+        if (nodo == null) {
+            return;//detener recursividad caso base
+        } else {
+            System.out.print("NUMERO DE NODO : " + nodo.getDato());
+            recorerPreOrden(nodo.getHijoIzquierdo());
+            recorerPreOrden(nodo.getHijoDerecho());
+
+        }
     }
 
     public NodoArbol getRaiz() {
